@@ -56,6 +56,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                   BrandImage(context),
                   const TabCatShop(),
+                  SizedBox(
+                    height: 20,
+                  ),
                   trendingforHer(
                     context,
                   ),
@@ -92,66 +95,64 @@ Widget trendingforHer(
     sunscreenText
   ];
 
-  return Expanded(
-    child: Container(
-      // height: size.height * .56,
-      color: base2Color,
-      child: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: 8.0,
-            ),
-            child: Text(
-              trendingHerText,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+  return Container(
+    // height: size.height * .56,
+    color: base2Color,
+    child: Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: 8.0,
+          ),
+          child: Text(
+            trendingHerText,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          GridView.builder(
-              padding: const EdgeInsets.all(16),
-              physics: const BouncingScrollPhysics(),
-              itemCount: trendHerimage.length,
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 16),
-              itemBuilder: (BuildContext context, indx) {
-                return Column(
-                  children: [
-                    Image.asset(trendHerimage[indx]),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      trenproductText[indx],
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      trenproductTitleText[indx],
-                      style: const TextStyle(fontWeight: FontWeight.w400),
-                    ),
-                  ],
-                );
-              }),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16),
-            child: Container(
-              height: 30,
-              width: 100,
-              decoration: BoxDecoration(
-                  color: baseColor, borderRadius: BorderRadius.circular(30)),
-              child: const Center(
-                  child: Text(
-                checkMoreText,
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              )),
-            ),
-          )
-        ],
-      ),
+        ),
+        GridView.builder(
+            padding: const EdgeInsets.all(16),
+            physics: const BouncingScrollPhysics(),
+            itemCount: trendHerimage.length,
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 16),
+            itemBuilder: (BuildContext context, indx) {
+              return Column(
+                children: [
+                  Image.asset(trendHerimage[indx]),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    trenproductText[indx],
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    trenproductTitleText[indx],
+                    style: const TextStyle(fontWeight: FontWeight.w400),
+                  ),
+                ],
+              );
+            }),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 16),
+          child: Container(
+            height: 30,
+            width: 100,
+            decoration: BoxDecoration(
+                color: baseColor, borderRadius: BorderRadius.circular(30)),
+            child: const Center(
+                child: Text(
+              checkMoreText,
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            )),
+          ),
+        )
+      ],
     ),
   );
 }
@@ -172,55 +173,51 @@ Widget trendingforHim(context) {
     sunscreenText
   ];
 
-  return Expanded(
-    child: Padding(
-      padding: const EdgeInsets.only(top: 25, bottom: 100),
-      child: Container(
-        // height: size.height * .56,
-        color: trendingHimcolor,
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 8.0,
-              ),
-              child: Text(
-                trendingHimText,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+  return Padding(
+    padding: const EdgeInsets.only(top: 25, bottom: 100),
+    child: Container(
+      // height: size.height * .56,
+      color: trendingHimcolor,
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 8.0,
+            ),
+            child: Text(
+              trendingHimText,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            GridView.builder(
-                padding: const EdgeInsets.all(16),
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: trendHimimage.length,
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 16),
-                itemBuilder: (BuildContext context, indx) {
-                  return Column(
-                    children: [
-                      Image.asset(trendHimimage[indx]),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        trenproductText[indx],
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        trenproductTitleText[indx],
-                        style: const TextStyle(fontWeight: FontWeight.w400),
-                      ),
-                    ],
-                  );
-                }),
-          ],
-        ),
+          ),
+          GridView.builder(
+              padding: const EdgeInsets.all(16),
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: trendHimimage.length,
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 16),
+              itemBuilder: (BuildContext context, indx) {
+                return Column(
+                  children: [
+                    Image.asset(trendHimimage[indx]),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      trenproductText[indx],
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      trenproductTitleText[indx],
+                      style: const TextStyle(fontWeight: FontWeight.w400),
+                    ),
+                  ],
+                );
+              }),
+        ],
       ),
     ),
   );
