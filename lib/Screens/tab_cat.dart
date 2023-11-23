@@ -5,7 +5,7 @@ import 'package:looks_beauty/constants/string_constant.dart';
 
 class TabCatScreen extends StatelessWidget {
   TabCatScreen({super.key});
-  final List CatImages = [mdImg, mdImg, mdImg, mdImg];
+  final List CatImages = [mdImg, mdhairImg, mdImg, mdImg];
   final List CatImageText = [mdText, mdHairText, mdRestorText, mdImg];
   @override
   Widget build(BuildContext context) {
@@ -39,16 +39,20 @@ class TabCatScreen extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   CatImages[indx],
-                                  height: 150,
+                                  height: 120,
                                 ),
                                 const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Icon(Icons.shopping_cart),
+                                    Icon(
+                                      Icons.shopping_cart,
+                                      size: 17,
+                                    ),
                                     Icon(
                                       Icons.favorite,
                                       color: Colors.pink,
+                                      size: 17,
                                     )
                                   ],
                                 )
@@ -61,11 +65,14 @@ class TabCatScreen extends StatelessWidget {
                     Text(
                       CatImageText[indx],
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
                     ),
-                    const Text(
-                      bestsellerText,
-                      style: TextStyle(fontWeight: FontWeight.w500),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 5),
+                      child: const Text(
+                        bestsellerText,
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 35),
