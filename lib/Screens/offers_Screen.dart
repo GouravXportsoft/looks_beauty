@@ -12,7 +12,7 @@ class OfferScreen extends StatelessWidget {
       child: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            const SliverAppBar(
+            SliverAppBar(
               automaticallyImplyLeading: false,
               pinned: true, // Make the SearchComponent pinned at the top
               backgroundColor: safeareaColor,

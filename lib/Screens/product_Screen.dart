@@ -28,7 +28,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       child: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            const SliverAppBar(
+            SliverAppBar(
               automaticallyImplyLeading: false,
               pinned: true, // Make the SearchComponent pinned at the top
               backgroundColor: safeareaColor,
@@ -559,7 +559,10 @@ class _SelctedSizeState extends State<SelctedSize> {
                 // product['stock_status'] == "instock"
                 //     ? "In Stock"
                 //     : "Out Of Stock",
-                style: TextStyle(fontSize: 2 + 10, color: textGreenColor),
+                style: TextStyle(
+                    fontSize: 14,
+                    color: textGreenColor,
+                    fontWeight: FontWeight.w700),
               ),
             ),
             // quantityChangeWrapper(cartItem, cartProvider),

@@ -1,5 +1,6 @@
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:looks_beauty/Screens/MyAccountScreen.dart';
 import 'package:looks_beauty/Screens/category_Screen.dart';
 import 'package:looks_beauty/Screens/home_screen.dart';
 import 'package:looks_beauty/Screens/notification_Screen.dart';
@@ -34,6 +35,7 @@ class _TabBarScreenState extends State<TabBarScreen>
   @override
   void dispose() {
     _tabController!.dispose();
+    super.dispose();
   }
 
   getScreen() {
@@ -46,7 +48,7 @@ class _TabBarScreenState extends State<TabBarScreen>
       case 2:
         return const OfferScreen();
       case 3:
-        return const NotificationScreen();
+        return const myAccScreen();
       default:
         return const HomeScreen();
     }
@@ -93,8 +95,8 @@ class _TabBarScreenState extends State<TabBarScreen>
                         text: 'Offers',
                       ),
                       Tab(
-                        icon: ImageIcon(AssetImage(notificationImage)),
-                        text: 'Notification',
+                        icon: ImageIcon(AssetImage(myaccimg)),
+                        text: 'Account',
                       ),
                     ]),
               ),

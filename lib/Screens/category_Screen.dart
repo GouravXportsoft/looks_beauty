@@ -21,6 +21,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
     menWelnessImg
   ];
 
+  final List menImgname = [
+    "Hair",
+    "Beard",
+    "Skin Care",
+    "Bath & Body",
+    "wellness"
+  ];
+
   final List womenImg = [
     womenMakeUpImg,
     womenFaceImg,
@@ -32,14 +40,24 @@ class _CategoryScreenState extends State<CategoryScreen> {
     womenOtherImg
   ];
 
+  final List womenimgName = [
+    "MakeUp",
+    "Face",
+    "Hair",
+    "Lip Care",
+    "Eyes",
+    "Nails",
+    "Spa",
+    "Other"
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(color: safeareaColor),
+      decoration: BoxDecoration(color: safeareaColor),
       child: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            const SliverAppBar(
+            SliverAppBar(
               automaticallyImplyLeading: false,
               pinned: true,
               backgroundColor: safeareaColor,
@@ -80,7 +98,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                   child: Padding(
                                     padding: EdgeInsets.all(4.0),
                                     child: Text(
-                                      'MENS',
+                                      "MEN'S",
                                       style: TextStyle(
                                         color: selectedCategoryIndex == 1
                                             ? Colors.white
@@ -154,7 +172,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
         crossAxisSpacing: 0,
       ),
       itemBuilder: (BuildContext contx, indx) {
-        return Image.asset(menImg[indx], scale: 4);
+        return Column(
+          children: [
+            Image.asset(menImg[indx], scale: 4),
+            Text(menImgname[indx])
+          ],
+        );
       },
     );
   }
@@ -170,9 +193,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
         crossAxisSpacing: 0,
       ),
       itemBuilder: (BuildContext contx, indx) {
-        return Image.asset(
-          womenImg[indx],
-          scale: 4,
+        return Column(
+          children: [
+            Image.asset(
+              womenImg[indx],
+              scale: 4,
+            ),
+            Text(womenimgName[indx])
+          ],
         );
       },
     );

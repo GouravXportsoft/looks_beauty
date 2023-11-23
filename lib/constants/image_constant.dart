@@ -3,8 +3,12 @@ const googleImage = 'assets/google.png';
 const bannerImage = 'assets/banner.png';
 const frameImage = 'assets/Frame.png';
 const applogoImage = 'assets/logo.png';
+const cartImg = 'assets/cartimg.png';
+
 const homeImage = 'assets/home.png';
 const catImage = 'assets/category.png';
+const myaccimg = 'assets/userImg.png';
+
 const notificationImage = 'assets/notification.png';
 const offersImage = 'assets/offers.png';
 const Bestsellerimg1 = 'assets/1.png';

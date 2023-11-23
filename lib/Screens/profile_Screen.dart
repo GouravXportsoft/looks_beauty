@@ -11,7 +11,7 @@ class ProfileScreen extends StatelessWidget {
         body: SafeArea(
             child: CustomScrollView(
       slivers: <Widget>[
-        const SliverAppBar(
+        SliverAppBar(
           automaticallyImplyLeading: false,
           pinned: true,
           backgroundColor: safeareaColor,
