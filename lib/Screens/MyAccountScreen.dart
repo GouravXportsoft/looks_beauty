@@ -19,12 +19,16 @@ class _myAccScreenState extends State<myAccScreen> {
       child: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            const SliverAppBar(
+            SliverAppBar(
               automaticallyImplyLeading: false,
               pinned: true, // Make the SearchComponent pinned at the top
               backgroundColor: safeareaColor,
               expandedHeight: 50, // Adjust the height as needed
-              flexibleSpace: appbarMyAcc(),
+              flexibleSpace: appbarMyAcc(
+                onTextChange: 'My Account',
+                showCartIcon: true,
+                title: 'Cart',
+              ),
             ),
             SliverList(
               delegate: SliverChildListDelegate(

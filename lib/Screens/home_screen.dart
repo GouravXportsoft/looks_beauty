@@ -403,7 +403,7 @@ Widget BestSellerCard() {
       itemBuilder: (BuildContext context, int index) {
         // You can customize each Card here
         return Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Container(
             // Adjust the width as needed
 

@@ -19,7 +19,7 @@ class TabCatScreen extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                height: size.height,
+                height: 200,
                 width: size.width / 2,
                 decoration: BoxDecoration(
                     color: Colors.transparent,
