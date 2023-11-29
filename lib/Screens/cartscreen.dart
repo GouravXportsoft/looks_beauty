@@ -161,7 +161,7 @@ class _CartScreenState extends State<CartScreen> {
                 children: [
                   Image.asset(
                     brandListImage[index],
-                    scale: 2,
+                    scale: 4,
                   ),
                 ],
               ),

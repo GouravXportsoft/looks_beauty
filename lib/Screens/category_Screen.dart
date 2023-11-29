@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:looks_beauty/Screens/MyOrder.dart';
 import 'package:looks_beauty/components/search_component.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
@@ -147,8 +148,24 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         ),
                       ),
                       selectedCategoryIndex == 0
-                          ? womenGridItem()
-                          : menGridItem(),
+                          ? GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MyOrderScreen()),
+                                );
+                              },
+                              child: womenGridItem())
+                          : GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MyOrderScreen()),
+                                );
+                              },
+                              child: menGridItem()),
                     ],
                   ),
                 ],
