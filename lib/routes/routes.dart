@@ -21,7 +21,7 @@ const cartScreen = '/lib/Screens/cartscreen.dart';
 // const productDetailsRoute = '/product_Screen.dart';
 
 final routes = {
-  homeRoute: (context) => const HomeScreen(),
+  homeRoute: (context) => HomeScreen(),
   tabsRoute: (context) => const TabBarScreen(),
   logSingupRoute: (context) => const LoginSignup(),
   categoryRoute: (context) => const CategoryScreen(),

@@ -8,9 +8,10 @@ import 'package:looks_beauty/constants/image_constant.dart';
 import 'package:looks_beauty/constants/string_constant.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
 
   openProductDetailScreen(context) {
     Navigator.push(context,
@@ -19,6 +20,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    final List bannerImgs = [
+      bannerImage,
+      bannerImage,
+      bannerImage,
+      bannerImage,
+      bannerImage
+    ];
     return Container(
       decoration: const BoxDecoration(color: safeareaColor),
       child: Scaffold(
@@ -35,7 +44,33 @@ class HomeScreen extends StatelessWidget {
               delegate: SliverChildListDelegate(
                 <Widget>[
                   const BodyCareProductCat(),
-                  const Carousel(),
+                  // const Carousel(),
+
+                  VxSwiper.builder(
+                      height: 160,
+                      viewportFraction: 0.9,
+                      autoPlayAnimationDuration: Duration(milliseconds: 600),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      autoPlay: true,
+                      itemCount: bannerImgs.length,
+                      itemBuilder: ((context, index) {
+                        return Container(
+                          height: size.height,
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Image.asset(
+                                // width: 100,
+                                bannerImgs[index],
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        );
+                      })),
+
                   const Padding(
                     padding: EdgeInsets.all(10.0),
                     child: Align(

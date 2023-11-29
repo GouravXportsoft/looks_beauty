@@ -41,7 +41,7 @@ class _TabBarScreenState extends State<TabBarScreen>
   getScreen() {
     switch (_selectedIndex) {
       case 0:
-        return const HomeScreen();
+        return HomeScreen();
       case 1:
         return const CategoryScreen();
 
@@ -50,7 +50,7 @@ class _TabBarScreenState extends State<TabBarScreen>
       case 3:
         return const myAccScreen();
       default:
-        return const HomeScreen();
+        return HomeScreen();
     }
   }
 
