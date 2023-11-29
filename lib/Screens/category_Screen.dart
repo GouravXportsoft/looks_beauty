@@ -21,7 +21,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
     menBathImg,
     menWelnessImg
   ];
-
   final List menImgname = [
     "Hair",
     "Beard",
@@ -51,6 +50,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     "Spa",
     "Other"
   ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -63,7 +63,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
               pinned: true,
               backgroundColor: safeareaColor,
               expandedHeight: 50,
-              flexibleSpace: SearchComponent(),
+              flexibleSpace:
+                  SearchComponent(), // Make sure to implement SearchComponent
             ),
             SliverList(
               delegate: SliverChildListDelegate(
@@ -71,101 +72,21 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  selectedCategoryIndex = 1; // Men's
-                                });
-                              },
-                              child: Ink(
-                                width: 70,
-                                decoration: BoxDecoration(
-                                  color: selectedCategoryIndex == 1
-                                      ? baseColor
-                                      : null,
-                                  border: Border.all(
-                                    color: selectedCategoryIndex == 1
-                                        ? baseColor
-                                        : base2Color,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(4.0),
-                                    child: Text(
-                                      "MEN'S",
-                                      style: TextStyle(
-                                        color: selectedCategoryIndex == 1
-                                            ? Colors.white
-                                            : baseColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  selectedCategoryIndex = 0; // Women's
-                                });
-                              },
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                  color: selectedCategoryIndex == 0
-                                      ? baseColor
-                                      : null,
-                                  border: Border.all(
-                                    color: selectedCategoryIndex == 0
-                                        ? baseColor
-                                        : base2Color,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: Text(
-                                      "WOMEN'S",
-                                      style: TextStyle(
-                                        color: selectedCategoryIndex == 0
-                                            ? Colors.white
-                                            : baseColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      buildCategoryRow("MEN'S", 1),
+                      buildCategoryRow("WOMEN'S", 0),
                       selectedCategoryIndex == 0
                           ? GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => MyOrderScreen()),
-                                );
+                                navigateToMyOrderScreen();
                               },
-                              child: womenGridItem())
+                              child: womenGridItem(),
+                            )
                           : GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => MyOrderScreen()),
-                                );
+                                navigateToMyOrderScreen();
                               },
-                              child: menGridItem()),
+                              child: menGridItem(),
+                            ),
                     ],
                   ),
                 ],
@@ -174,6 +95,56 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget buildCategoryRow(String label, int index) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: () {
+              setState(() {
+                selectedCategoryIndex = index;
+              });
+            },
+            child: Ink(
+              width: 70,
+              decoration: BoxDecoration(
+                color: selectedCategoryIndex == index ? baseColor : null,
+                border: Border.all(
+                  color:
+                      selectedCategoryIndex == index ? baseColor : base2Color,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: Text(
+                    label,
+                    style: TextStyle(
+                      color: selectedCategoryIndex == index
+                          ? Colors.white
+                          : baseColor,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 10),
+        ],
+      ),
+    );
+  }
+
+  void navigateToMyOrderScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MyOrderScreen()),
     );
   }
 
@@ -188,13 +159,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
         mainAxisSpacing: 0,
         crossAxisSpacing: 0,
       ),
-      itemBuilder: (BuildContext contx, indx) {
-        return Column(
-          children: [
-            Image.asset(menImg[indx], scale: 4),
-            Text(menImgname[indx])
-          ],
-        );
+      itemBuilder: (BuildContext context, int index) {
+        return buildGridItem(menImg[index], menImgname[index]);
       },
     );
   }
@@ -209,17 +175,18 @@ class _CategoryScreenState extends State<CategoryScreen> {
         mainAxisSpacing: 0,
         crossAxisSpacing: 0,
       ),
-      itemBuilder: (BuildContext contx, indx) {
-        return Column(
-          children: [
-            Image.asset(
-              womenImg[indx],
-              scale: 4,
-            ),
-            Text(womenimgName[indx])
-          ],
-        );
+      itemBuilder: (BuildContext context, int index) {
+        return buildGridItem(womenImg[index], womenimgName[index]);
       },
+    );
+  }
+
+  Widget buildGridItem(String image, String name) {
+    return Column(
+      children: [
+        Image.asset(image, scale: 4),
+        Text(name),
+      ],
     );
   }
 }
