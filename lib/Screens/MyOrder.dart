@@ -13,13 +13,11 @@ class MyOrderScreen extends StatefulWidget {
 String selectedOption = 'Option 1';
 
 class _MyOrderScreenState extends State<MyOrderScreen> {
-  late GlobalKey _dropdownKey;
   String searchText = 'Search Your Order';
 
   @override
   void initState() {
     super.initState();
-    _dropdownKey = GlobalKey();
   }
 
   @override
@@ -43,8 +41,8 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 16.0, horizontal: 50),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 50),
                   child: GestureDetector(
                     onTap: () {
                       showDropDown(context);
@@ -85,19 +83,24 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          content: Container(
-            width: 200.0,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                buildDropDownItem('Option 1', context),
-                buildDropDownItem('Option 2', context),
-                buildDropDownItem('Option 3', context),
-              ],
+        return Stack(children: [
+          Positioned(
+            top: 100,
+            child: AlertDialog(
+              content: Container(
+                width: 200.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    buildDropDownItem('Option 1', context),
+                    buildDropDownItem('Option 2', context),
+                    buildDropDownItem('Option 3', context),
+                  ],
+                ),
+              ),
             ),
           ),
-        );
+        ]);
       },
     );
   }
@@ -118,15 +121,35 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
 
 Widget Orderss(BuildContext context) {
   Size size = MediaQuery.of(context).size;
+  List ImageListorder = [mdImg, mdImg, mdImg, mdImg, mdImg];
+  List textOrderr = [
+    "Maybellinne Fit me - Matte+Poreless",
+    "Maybellinne Fit me - Matte+Poreless",
+    "Maybellinne Fit me - Matte+Poreless",
+    "Maybellinne Fit me - Matte+Poreless",
+    "Maybellinne Fit me - Matte+Poreless"
+  ];
 
   return ListView.builder(
+    padding: EdgeInsets.zero,
     shrinkWrap: true,
-    itemCount: 10, // Specify the itemCount
+    itemCount: 5, // Specify the itemCount
     itemBuilder: (BuildContext context, int index) {
-      return Container(
-        width: size.width,
-        height: 100,
-        decoration: BoxDecoration(color: trendingHimcolor),
+      return Padding(
+        padding: const EdgeInsets.only(top: 16),
+        child: Container(
+          width: size.width,
+          height: 100,
+          decoration: BoxDecoration(color: trendingHimcolor),
+          child: Align(
+              alignment: Alignment.centerLeft,
+              child: Row(
+                children: [
+                  Image.asset(ImageListorder[index]),
+                  Text(textOrderr[index])
+                ],
+              )),
+        ),
       );
     },
   );

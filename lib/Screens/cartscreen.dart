@@ -165,7 +165,10 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ],
               ),
-              Divider()
+              Divider(
+                color: bottomBarColor,
+                thickness: 0.2,
+              )
             ],
           ),
         ),
