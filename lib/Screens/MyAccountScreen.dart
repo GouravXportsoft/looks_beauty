@@ -54,7 +54,7 @@ class _myAccScreenState extends State<myAccScreen> {
                                       "Orders",
                                       style: TextStyle(color: Colors.white),
                                     ),
-                                  ),
+                                  ), 
                                 ),
                                 Container(
                                   height: 30,
@@ -138,7 +138,7 @@ class _myAccScreenState extends State<myAccScreen> {
                           decoration: BoxDecoration(
                             color: baseColor,
                             borderRadius: BorderRadius.circular(20),
-                          ),
+                          ), 
                           child: const Center(
                               child: Text(
                             "LogOut",

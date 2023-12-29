@@ -26,7 +26,11 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
+<<<<<<< HEAD
           const SliverAppBar(
+=======
+        const  SliverAppBar(
+>>>>>>> ed26a4e (.)
             automaticallyImplyLeading: false,
             pinned: true,
             backgroundColor: safeareaColor,
