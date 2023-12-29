@@ -67,7 +67,7 @@ class _CartScreenState extends State<CartScreen> {
                             child: Text(
                               "Subtotal ₹1100.00",
                               style: TextStyle(
-                                fontSize: 22,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w600,
                                 color: bottomBarColor,
                               ),
@@ -90,7 +90,7 @@ class _CartScreenState extends State<CartScreen> {
                             const Expanded(
                               child: Text(
                                 "Xportsoft Technologies, Kardhan Road, Khojkipur, Ambala Cantt - 133001",
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 13),
                               ),
                             ),
                             TextButton(
@@ -102,7 +102,7 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Orders(context),
@@ -152,7 +152,7 @@ class _CartScreenState extends State<CartScreen> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => OrderDetail()),
+              MaterialPageRoute(builder: (context) => const OrderDetail()),
             );
           },
           child: Column(
@@ -165,7 +165,7 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ],
               ),
-              Divider(
+              const Divider(
                 color: bottomBarColor,
                 thickness: 0.2,
               )

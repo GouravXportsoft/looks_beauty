@@ -26,7 +26,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
+          const SliverAppBar(
             automaticallyImplyLeading: false,
             pinned: true,
             backgroundColor: safeareaColor,
@@ -62,7 +62,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(searchText),
-                              Icon(Icons.arrow_drop_down),
+                              const Icon(Icons.arrow_drop_down),
                             ],
                           ),
                         ),
@@ -131,16 +131,17 @@ Widget Orderss(BuildContext context) {
   ];
 
   return ListView.builder(
+    physics: NeverScrollableScrollPhysics(),
     padding: EdgeInsets.zero,
     shrinkWrap: true,
-    itemCount: 5, // Specify the itemCount
+    itemCount: ImageListorder.length, // Specify the itemCount
     itemBuilder: (BuildContext context, int index) {
       return Padding(
         padding: const EdgeInsets.only(top: 16),
         child: Container(
           width: size.width,
           height: 100,
-          decoration: BoxDecoration(color: trendingHimcolor),
+          decoration: const BoxDecoration(color: trendingHimcolor),
           child: Align(
               alignment: Alignment.centerLeft,
               child: Row(
