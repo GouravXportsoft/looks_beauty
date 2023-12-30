@@ -2,7 +2,7 @@ const appleImage = 'assets/apple.png';
 const googleImage = 'assets/google.png';
 const bannerImage = 'assets/banner.png';
 const frameImage = 'assets/Frame.png';
-const applogoImage = 'assets/logo.png';
+const applogoImage = 'assets/logo2.png';
 const cartImg = 'assets/cartimg.png';
 
 const homeImage = 'assets/home.png';

@@ -55,6 +55,7 @@ class _PriceCaraouselState extends State<PriceCaraousel> {
       height: size.height / 10,
       child: Stack(children: [
         PageView.builder(
+          
           controller: pageController1,
           scrollDirection: Axis.horizontal,
           itemCount: 3,
@@ -116,6 +117,6 @@ class _PriceCaraouselState extends State<PriceCaraousel> {
         )
       ]),
     );
-    ;
+    
   }
 }

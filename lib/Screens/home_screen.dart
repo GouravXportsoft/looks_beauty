@@ -446,8 +446,11 @@ Widget BestSellerCard() {
               onTap: () {
                 openProductDetailScreen(context);
               },
-              child: Image.asset(
-                Imglist[index],
+              child: Hero(
+                tag: "productphoto",
+                child: Image.asset(
+                  Imglist[index],
+                ),
               ),
             ),
           ),

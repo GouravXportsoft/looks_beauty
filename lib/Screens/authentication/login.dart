@@ -8,6 +8,7 @@ import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
 import 'package:looks_beauty/constants/string_constant.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import 'package:swipeable_button_view/swipeable_button_view.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -25,6 +26,8 @@ class _LoginPageState extends State<LoginPage>
   bool changebutton = false;
 
   bool _isValid = false;
+
+  bool isFinished = false;
 
   final _formKey = GlobalKey<FormState>();
   final _formKey1 = GlobalKey<FormState>();
@@ -103,8 +106,8 @@ class _LoginPageState extends State<LoginPage>
       Future.delayed(const Duration(seconds: 1));
       _formKey.currentState?.save();
 
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => TabBarScreen()));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const TabBarScreen()));
     }
   }
 
@@ -151,9 +154,9 @@ class _LoginPageState extends State<LoginPage>
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => TabBarScreen()));
+                                builder: (context) => const TabBarScreen()));
                       },
-                      child: Text(
+                      child: const Text(
                         "SKIP",
                         style: TextStyle(color: Colors.black),
                       )),
@@ -421,96 +424,126 @@ class _LoginPageState extends State<LoginPage>
                 ],
               ),
               const Text(accText),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 15),
+              //   child: ScaleTransition(
+              //       scale: _animation,
+              //       child: RoundedLoadingButton(
+              //         resetAfterDuration: true,
+              //         resetDuration: const Duration(milliseconds: 1000),
+              //         color: baseColor,
+              //         onPressed: () {
+              //           showDialog(
+              //               context: context,
+              //               builder: (context) => AlertDialog(
+              //                     title: const Text(
+              //                       'OTP Verification',
+              //                       style: TextStyle(
+              //                         color: baseColor,
+              //                         fontWeight: FontWeight.bold,
+              //                         fontSize: 18,
+              //                       ),
+              //                     ),
+              //                     content: Column(
+              //                       crossAxisAlignment:
+              //                           CrossAxisAlignment.center,
+              //                       mainAxisSize: MainAxisSize.min,
+              //                       children: [
+              //                         const Text('Enter OTP Code'),
+              //                         const SizedBox(
+              //                           height: 20,
+              //                         ),
+              //                         Form(
+              //                             key: _formKey1,
+              //                             child: TextFormField(
+              //                               validator: (value) {
+              //                                 if (value?.length != 6) {
+              //                                   return 'Please enter a valid otp';
+              //                                 }
+
+              //                                 return null;
+              //                               },
+              //                               onChanged: (value) {
+              //                                 name = value;
+              //                                 _isValid = _formKey1.currentState!
+              //                                     .validate();
+              //                                 setState(() {});
+              //                               },
+              //                               onSaved: (newValue) {
+              //                                 // userModelClass.Number = int.tryParse('$newValue');
+              //                               },
+              //                               keyboardType: TextInputType.number,
+              //                               decoration: InputDecoration(
+              //                                   enabledBorder:
+              //                                       OutlineInputBorder(
+              //                                           borderRadius:
+              //                                               BorderRadius
+              //                                                   .circular(10)),
+              //                                   contentPadding:
+              //                                       const EdgeInsets.all(8),
+              //                                   focusedBorder:
+              //                                       OutlineInputBorder(
+              //                                           borderRadius:
+              //                                               BorderRadius
+              //                                                   .circular(10)),
+              //                                   label: const Text('Enter OTP')),
+              //                             ))
+              //                       ],
+              //                     ),
+              //                     actions: [
+              //                       TextButton(
+              //                           onPressed: () {
+              //                             moveToNextScreen(context);
+              //                           },
+              //                           child: const Text(
+              //                             'Sumbit',
+              //                             style: TextStyle(color: baseColor),
+              //                           ))
+              //                     ],
+              //                   ));
+              //         },
+              //         controller: roundedController,
+              //         successColor: baseColor,
+              //         child: const Center(
+              //           child: Text('send otp',
+              //               style: TextStyle(
+              //                 color: Colors.white,
+              //                 fontSize: 16,
+              //                 fontWeight: FontWeight.bold,
+              //                 // fontFamily: GoogleFonts.roboto().fontFamily),
+              //               )),
+              //         ),
+              //       )),
+              // ),
               Padding(
                 padding: const EdgeInsets.only(top: 15),
-                child: ScaleTransition(
-                    scale: _animation,
-                    child: RoundedLoadingButton(
-                      resetAfterDuration: true,
-                      resetDuration: Duration(milliseconds: 1000),
-                      color: baseColor,
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                                  title: Text(
-                                    'OTP Verification',
-                                    style: TextStyle(
-                                      color: baseColor,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  content: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text('Enter OTP Code'),
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                      Form(
-                                          key: _formKey1,
-                                          child: TextFormField(
-                                            validator: (value) {
-                                              if (value?.length != 6) {
-                                                return 'Please enter a valid otp';
-                                              }
-
-                                              return null;
-                                            },
-                                            onChanged: (value) {
-                                              name = value;
-                                              _isValid = _formKey1.currentState!
-                                                  .validate();
-                                              setState(() {});
-                                            },
-                                            onSaved: (newValue) {
-                                              // userModelClass.Number = int.tryParse('$newValue');
-                                            },
-                                            keyboardType: TextInputType.number,
-                                            decoration: InputDecoration(
-                                                enabledBorder:
-                                                    OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10)),
-                                                contentPadding: EdgeInsets
-                                                    .all(8),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10)),
-                                                label: Text('Enter OTP')),
-                                          ))
-                                    ],
-                                  ),
-                                  actions: [
-                                    TextButton(
-                                        onPressed: () {
-                                          moveToNextScreen(context);
-                                        },
-                                        child: Text(
-                                          'Sumbit',
-                                          style: TextStyle(color: baseColor),
-                                        ))
-                                  ],
-                                ));
-                      },
-                      controller: roundedController,
-                      successColor: baseColor,
-                      child: const Center(
-                        child: Text('send otp',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              // fontFamily: GoogleFonts.roboto().fontFamily),
-                            )),
+                child: SwipeableButtonView(
+                    disableColor: Colors.amber,
+                    onFinish: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
+                      setState(() {
+                        isFinished = false;
+                      });
+                    },
+                    isFinished: isFinished,
+                    onWaitingProcess: () {
+                      Future.delayed(const Duration(seconds: 2), () {
+                        setState(() {
+                          isFinished = true;
+                        });
+                      });
+                    },
+                    activeColor: baseColor,
+                    buttonWidget: Container(
+                      child: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Color(0xffA8763F),
                       ),
-                    )),
+                    ),
+                    buttonText: 'Slide to Send OTP'),
               ),
               // Padding(
               //   padding: const EdgeInsets.symmetric(vertical: 10),

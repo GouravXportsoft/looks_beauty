@@ -28,7 +28,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       child: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            SliverAppBar(
+            const SliverAppBar(
               automaticallyImplyLeading: false,
               pinned: true, // Make the SearchComponent pinned at the top
               backgroundColor: safeareaColor,
