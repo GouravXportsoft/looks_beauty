@@ -439,18 +439,18 @@ Widget BestSellerCard() {
         // You can customize each Card here
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Container(
-            // Adjust the width as needed
-
-            decoration: const BoxDecoration(
-                color: base2Color,
-                borderRadius: BorderRadius.all(Radius.circular(15))),
+          child: Card(
+            elevation: 4,
+            shadowColor: baseColor,
             child: GestureDetector(
               onTap: () {
                 openProductDetailScreen(context);
               },
-              child: Image.asset(
-                Imglist[index],
+              child: Hero(
+                tag: "productphoto",
+                child: Image.asset(
+                  Imglist[index],
+                ),
               ),
             ),
           ),

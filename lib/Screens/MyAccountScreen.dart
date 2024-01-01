@@ -95,7 +95,7 @@ class _myAccScreenState extends State<myAccScreen> {
                                     child: Padding(
                                       padding: EdgeInsets.only(bottom: 16),
                                       child: Text(
-                                        "Setting",
+                                        "Settings",
                                         style: TextStyle(
                                             color: bottomBarColor,
                                             fontSize: 20,
