@@ -1,6 +1,5 @@
 import 'package:looks_beauty/Screens/product_Screen.dart';
 import 'package:looks_beauty/Screens/tab_cat_shop.dart';
-import 'package:looks_beauty/components/carousel.dart';
 import 'package:looks_beauty/components/priceCarousel.dart';
 import 'package:looks_beauty/components/search_component.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
@@ -193,7 +192,6 @@ Widget trendingforHer(
 }
 
 Widget trendingforHim(context) {
-  Size size = MediaQuery.of(context).size;
   final List trendHimimage = [menImg, hairbeardImg, niveaImg, hritikImg];
   final List trenproductText = [
     buyOneGetText,
@@ -259,7 +257,6 @@ Widget trendingforHim(context) {
 }
 
 Widget BrandImage(context) {
-  Size size = MediaQuery.of(context).size;
   final List brandListImage = [
     pondsImg,
     kayImg,

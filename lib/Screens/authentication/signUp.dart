@@ -17,7 +17,6 @@ class _SingUpScreenState extends State<SingUpScreen>
     with SingleTickerProviderStateMixin {
   String? name = '';
   final _formKey = GlobalKey<FormState>();
-  bool _isValid = false;
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
@@ -161,7 +160,6 @@ class _SingUpScreenState extends State<SingUpScreen>
                                 },
                                 onChanged: (value) {
                                   name = value;
-                                  _isValid = _formKey.currentState!.validate();
                                   setState(() {});
                                 },
                                 onSaved: (newValue) {
@@ -191,7 +189,6 @@ class _SingUpScreenState extends State<SingUpScreen>
                                 },
                                 onChanged: (value) {
                                   name = value;
-                                  _isValid = _formKey.currentState!.validate();
                                   setState(() {});
                                 },
                                 onSaved: (newValue) {
@@ -227,7 +224,6 @@ class _SingUpScreenState extends State<SingUpScreen>
                                         : null,
                                 onChanged: (value) {
                                   name = value;
-                                  _isValid = _formKey.currentState!.validate();
                                   setState(() {});
                                 },
                                 onSaved: (newValue) {

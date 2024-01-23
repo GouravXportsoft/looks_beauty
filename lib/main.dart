@@ -9,8 +9,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  
   const MyApp({super.key});
 
+ 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -20,6 +22,17 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
           backgroundColor: base2Color,
           splashIconSize: size.height,
+
+
+
+
+
+
+
+
+
+
+          
           splashTransition: SplashTransition.slideTransition,
           splash: const Image(
             image: AssetImage(
@@ -30,3 +43,11 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+

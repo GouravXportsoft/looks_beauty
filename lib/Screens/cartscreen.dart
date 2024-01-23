@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:looks_beauty/Screens/home_screen.dart';
 import 'package:looks_beauty/Screens/orderDetails.dart';
-import 'package:looks_beauty/Screens/product_Screen.dart';
 import 'package:looks_beauty/components/appbarforMyAccScreen.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
@@ -32,8 +30,6 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
-    Size size = MediaQuery.of(context).size;
 
     return Container(
       decoration: const BoxDecoration(color: safeareaColor),

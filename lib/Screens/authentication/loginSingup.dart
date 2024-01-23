@@ -45,7 +45,7 @@ class _LoginSignupState extends State<LoginSignup>
         child: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(frameImage),
+                  image: const AssetImage(frameImage),
                   opacity: 100,
                   colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.28), BlendMode.dstATop))),
@@ -65,7 +65,7 @@ class _LoginSignupState extends State<LoginSignup>
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginPage()));
+                                    builder: (context) => const LoginPage()));
                           },
                           child: ScaleTransition(
                             scale: _animation,
@@ -95,7 +95,7 @@ class _LoginSignupState extends State<LoginSignup>
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SingUpScreen()));
+                                  builder: (context) => const SingUpScreen()));
                         },
                         child: ScaleTransition(
                           scale: _animation,

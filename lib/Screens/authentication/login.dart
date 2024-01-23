@@ -25,12 +25,10 @@ class _LoginPageState extends State<LoginPage>
 
   bool changebutton = false;
 
-  bool _isValid = false;
 
   bool isFinished = false;
 
   final _formKey = GlobalKey<FormState>();
-  final _formKey1 = GlobalKey<FormState>();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
@@ -197,7 +195,6 @@ class _LoginPageState extends State<LoginPage>
                               },
                               onChanged: (value) {
                                 name = value;
-                                _isValid = _formKey.currentState!.validate();
                                 setState(() {});
                               },
                               onSaved: (newValue) {
@@ -528,13 +525,20 @@ class _LoginPageState extends State<LoginPage>
                         isFinished = false;
                       });
                     },
-                    isFinished: isFinished,
+                    isFinished: isFinished, 
+
+
+
+
+
+                    
                     onWaitingProcess: () {
                       Future.delayed(const Duration(seconds: 2), () {
                         setState(() {
                           isFinished = true;
                         });
-                      });
+           
+                       });
                     },
                     activeColor: baseColor,
                     buttonWidget: Container(
@@ -544,7 +548,7 @@ class _LoginPageState extends State<LoginPage>
                       ),
                     ),
                     buttonText: 'Slide to Send OTP'),
-              ),
+                                 ),
               // Padding(
               //   padding: const EdgeInsets.symmetric(vertical: 10),
               //   child: GestureDetector(

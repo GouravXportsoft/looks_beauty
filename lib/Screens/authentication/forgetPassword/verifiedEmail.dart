@@ -46,7 +46,6 @@ class _VerifyEmailState extends State<VerifyEmail>
   }
 
   String? name = '';
-  bool _isValid = false;
   final TextEditingController emailController = TextEditingController();
   bool changebutton = false;
 
@@ -127,7 +126,6 @@ class _VerifyEmailState extends State<VerifyEmail>
                     },
                     onChanged: (value) {
                       name = value;
-                      _isValid = _formKey.currentState!.validate();
                       setState(() {});
                     },
                     onSaved: (newValue) {
