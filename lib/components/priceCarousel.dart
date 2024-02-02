@@ -70,6 +70,7 @@ class _PriceCaraouselState extends State<PriceCaraousel> {
                 GestureDetector(
                     onTap: () {
                       // widget.onClick(int.parse(carouselItem['id']));
+                      
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),

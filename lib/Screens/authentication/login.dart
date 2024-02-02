@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:looks_beauty/Screens/authentication/otp_screen.dart';
+import 'package:looks_beauty/Screens/authentication/signUp.dart';
 import 'package:looks_beauty/Screens/home_screen.dart';
 import 'package:looks_beauty/Screens/tabBar_Screen.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
@@ -523,7 +525,7 @@ class _LoginPageState extends State<LoginPage>
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                              builder: (context) => const OtpScreen()));
                       setState(() {
                         isFinished = false;
                       });
@@ -537,41 +539,39 @@ class _LoginPageState extends State<LoginPage>
                       });
                     },
                     activeColor: baseColor,
-                    buttonWidget: Container(
-                      child: const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: Color(0xffA8763F),
-                      ),
+                    buttonWidget: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Color(0xffA8763F),
                     ),
                     buttonText: 'Slide to Send OTP'),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(vertical: 10),
-              //   child: GestureDetector(
-              //     onTap: () {
-              //       Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //               builder: (context) => SingUpScreen()));
-              //     },
-              // child: RichText(
-              //     text: const TextSpan(
-              //         text: "Don't have an account?",
-              //         style: TextStyle(color: Colors.black),
-              //         children: [
-              //       TextSpan(
-              //           // recognizer: TapGestureRecognizer()
-              //           //   ..onTap = () {
-              //           //     Navigator.pop(context);
-              //           //   },
-              //           text: '  SignUp',
-              //           style: TextStyle(
-              //               fontSize: 15,
-              //               color: baseColor,
-              //               fontWeight: FontWeight.bold))
-              //     ])),
-              //   ),
-              // ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SingUpScreen()));
+                  },
+                  child: RichText(
+                      text: const TextSpan(
+                          text: "Don't have an account?",
+                          style: TextStyle(color: Colors.black),
+                          children: [
+                        TextSpan(
+                            // recognizer: TapGestureRecognizer()
+                            //   ..onTap = () {
+                            //     Navigator.pop(context);
+                            //   },
+                            text: '  SignUp',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: baseColor,
+                                fontWeight: FontWeight.bold))
+                      ])),
+                ),
+              ),
             ],
           ),
         ),

@@ -68,12 +68,6 @@ class _SingUpScreenState extends State<SingUpScreen>
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: AppBar(
-      //     leading: IconButton(
-      //         onPressed: () {
-      //           Navigator.pop(context);
-      //         },
-      //         icon: const Icon(Icons.arrow_back))),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -86,7 +80,7 @@ class _SingUpScreenState extends State<SingUpScreen>
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: Icon(Icons.arrow_back_ios),
+                      icon: const Icon(Icons.arrow_back_ios),
                     ),
                   ],
                 ),
@@ -98,7 +92,7 @@ class _SingUpScreenState extends State<SingUpScreen>
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 ScaleTransition(
@@ -387,8 +381,10 @@ class _SingUpScreenState extends State<SingUpScreen>
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()));
                     },
                     child: RichText(
                         text: const TextSpan(

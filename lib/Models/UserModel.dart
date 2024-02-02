@@ -1,21 +1,22 @@
+// ignore_for_file: file_names
+
 class UserModel {
   int? id;
   String? name;
   String? email;
   int? phone;
-  String? image;
-  String? country;
-  int? zipcode;
-  bool? type;
-  bool? is_active;
-}
 
-class userAddress {
-  int? id;
-  int? user_id;
-  int? shipping_id;
-  String? State;
-  String? postal_code;
-  bool? is_active;
-  String? type;
+  UserModel({this.id, this.name, this.email, this.phone});
+
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+        id: json['id'] ?? '',
+        name: json['username'] ?? '',
+        email: json['email'] ?? '',
+        phone: json['phone'] ?? '');
+  }
+
+  Map<String, dynamic> toJson() {
+    return {"id": id, "username": name, "email": email, "phone": phone};
+  }
 }
