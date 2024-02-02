@@ -1,9 +1,7 @@
-import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:looks_beauty/Screens/MyAccountScreen.dart';
 import 'package:looks_beauty/Screens/category_Screen.dart';
 import 'package:looks_beauty/Screens/home_screen.dart';
-import 'package:looks_beauty/Screens/notification_Screen.dart';
 import 'package:looks_beauty/Screens/offers_Screen.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';

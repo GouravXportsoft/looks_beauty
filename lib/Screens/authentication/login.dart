@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:looks_beauty/Screens/authentication/otp_screen.dart';
 import 'package:looks_beauty/Screens/authentication/signUp.dart';
 import 'package:looks_beauty/Screens/home_screen.dart';
 import 'package:looks_beauty/Screens/tabBar_Screen.dart';
@@ -27,12 +26,9 @@ class _LoginPageState extends State<LoginPage>
 
   bool changebutton = false;
 
-  bool _isValid = false;
-
   bool isFinished = false;
 
   final _formKey = GlobalKey<FormState>();
-  final _formKey1 = GlobalKey<FormState>();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
@@ -199,7 +195,6 @@ class _LoginPageState extends State<LoginPage>
                               },
                               onChanged: (value) {
                                 name = value;
-                                _isValid = _formKey.currentState!.validate();
                                 setState(() {});
                               },
                               onSaved: (newValue) {
@@ -525,7 +520,7 @@ class _LoginPageState extends State<LoginPage>
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const OtpScreen()));
+                              builder: (context) => TabBarScreen()));
                       setState(() {
                         isFinished = false;
                       });
@@ -546,13 +541,13 @@ class _LoginPageState extends State<LoginPage>
                     buttonText: 'Slide to Send OTP'),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 25),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SingUpScreen()));
+                            builder: (context) => const SingUpScreen()));
                   },
                   child: RichText(
                       text: const TextSpan(

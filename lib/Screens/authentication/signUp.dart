@@ -17,7 +17,6 @@ class _SingUpScreenState extends State<SingUpScreen>
     with SingleTickerProviderStateMixin {
   String? name = '';
   final _formKey = GlobalKey<FormState>();
-  bool _isValid = false;
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
@@ -141,7 +140,7 @@ class _SingUpScreenState extends State<SingUpScreen>
                                             BorderRadius.circular(12)),
                                     prefixIcon: const Icon(
                                       Icons.person,
-                                      color: baseColor,
+                                      // color: baseColor,
                                     )),
                                 controller: nameController,
                                 validator: (value) {
@@ -155,7 +154,6 @@ class _SingUpScreenState extends State<SingUpScreen>
                                 },
                                 onChanged: (value) {
                                   name = value;
-                                  _isValid = _formKey.currentState!.validate();
                                   setState(() {});
                                 },
                                 onSaved: (newValue) {
@@ -185,7 +183,6 @@ class _SingUpScreenState extends State<SingUpScreen>
                                 },
                                 onChanged: (value) {
                                   name = value;
-                                  _isValid = _formKey.currentState!.validate();
                                   setState(() {});
                                 },
                                 onSaved: (newValue) {
@@ -208,7 +205,7 @@ class _SingUpScreenState extends State<SingUpScreen>
                                             BorderRadius.circular(12)),
                                     prefixIcon: const Icon(
                                       Icons.mail,
-                                      color: baseColor,
+                                      // color: baseColor,
                                     )),
                               ),
                               const SizedBox(
@@ -221,7 +218,6 @@ class _SingUpScreenState extends State<SingUpScreen>
                                         : null,
                                 onChanged: (value) {
                                   name = value;
-                                  _isValid = _formKey.currentState!.validate();
                                   setState(() {});
                                 },
                                 onSaved: (newValue) {
@@ -244,7 +240,7 @@ class _SingUpScreenState extends State<SingUpScreen>
                                             BorderRadius.circular(12)),
                                     prefixIcon: const Icon(
                                       Icons.lock,
-                                      color: baseColor,
+                                      // color: baseColor,
                                     )),
                               ),
                             ],

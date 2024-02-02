@@ -62,28 +62,25 @@ class _ProductDetailCarouselState extends State<ProductDetailCarousel> {
         Stack(
           children: [
             Center(
-              child: Hero(
-                tag: "productphoto",
-                child: Container(
-                  // color: baseColor,
-                  width: size.width * 0.8,
-                  height: 250,
-                  child: PageView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 3,
-                    onPageChanged: (value) => setState(() {
-                      _pageIndex = value;
-                    }),
-                    itemBuilder: (context, index) {
-                      // final carouselItem = widget.images[index];
-                      return Image.asset(
-                        productphoto,
-                        fit: BoxFit.cover,
-                        // height: detailsCarouselHeight,
-                        // width: size.width
-                      );
-                    },
-                  ),
+              child: Container(
+                // color: baseColor,
+                width: size.width * 0.8,
+                height: 250,
+                child: PageView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  onPageChanged: (value) => setState(() {
+                    _pageIndex = value;
+                  }),
+                  itemBuilder: (context, index) {
+                    // final carouselItem = widget.images[index];
+                    return Image.asset(
+                      productphoto,
+                      fit: BoxFit.cover,
+                      // height: detailsCarouselHeight,
+                      // width: size.width
+                    );
+                  },
                 ),
               ),
             ),

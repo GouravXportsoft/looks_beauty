@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:looks_beauty/components/appbarforMyAccScreen.dart';
-import 'package:looks_beauty/components/search_component.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 
 class myAccScreen extends StatefulWidget {
@@ -54,7 +53,7 @@ class _myAccScreenState extends State<myAccScreen> {
                                       "Orders",
                                       style: TextStyle(color: Colors.white),
                                     ),
-                                  ),
+                                  ), 
                                 ),
                                 Container(
                                   height: 30,
@@ -138,7 +137,7 @@ class _myAccScreenState extends State<myAccScreen> {
                           decoration: BoxDecoration(
                             color: baseColor,
                             borderRadius: BorderRadius.circular(20),
-                          ),
+                          ), 
                           child: const Center(
                               child: Text(
                             "LogOut",
