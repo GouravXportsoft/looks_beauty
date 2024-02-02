@@ -81,7 +81,14 @@ class _filterCatScreenState extends State<filterCatScreen> {
                         ),
                       ),
                     ),
-                    CatGrid(context)
+                    CatGrid(context),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(bannerImage)),
+                    ),
+                    Cat_Grid(context)
                   ]),
                 )
               ],
@@ -160,42 +167,88 @@ class _filterCatScreenState extends State<filterCatScreen> {
   Widget CatGrid(context) {
     Size size = MediaQuery.of(context).size;
 
-    return GridView.builder(
-      padding: const EdgeInsets.all(8),
-      physics: const BouncingScrollPhysics(),
-      itemCount: 8,
-      shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        mainAxisExtent: size.height * .35,
-        crossAxisCount: 2,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 15,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 00),
+      child: GridView.builder(
+        padding: const EdgeInsets.all(8),
+        physics: const BouncingScrollPhysics(),
+        itemCount: 6,
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          mainAxisExtent: size.height * .35,
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 15,
+        ),
+        itemBuilder: (BuildContext context, indx) {
+          return Container(
+            // width: double.infinity,
+            clipBehavior: Clip.antiAlias,
+            height: size.height,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.transparent,
+              border: Border.all(color: hintTextColor),
+            ),
+            child: Column(
+              children: [
+                Container(
+                  height: 140,
+                  decoration: const BoxDecoration(
+                      color: trendingHimcolor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
+                ),
+              ],
+            ),
+          );
+        },
       ),
-      itemBuilder: (BuildContext context, indx) {
-        return Container(
-          // width: double.infinity,
+    );
+  }
 
-          height: size.height,
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-            border: Border.all(color: Colors.black),
-          ),
-          child: Column(
-            children: [
-              Container(
-                height: 80,
-                decoration: const BoxDecoration(color: Colors.blue),
-              ),
-              const Text("data"),
-              const Text("data"),
-              const Text("data"),
-              const Text("data"),
-              const Text("data"),
-              const Text("data"),
-            ],
-          ),
-        );
-      },
+  Widget Cat_Grid(context) {
+    Size size = MediaQuery.of(context).size;
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 50),
+      child: GridView.builder(
+        padding: const EdgeInsets.all(8),
+        physics: const BouncingScrollPhysics(),
+        itemCount: 2,
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          mainAxisExtent: size.height * .35,
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 15,
+        ),
+        itemBuilder: (BuildContext context, indx) {
+          return Container(
+            // width: double.infinity,
+            clipBehavior: Clip.antiAlias,
+            height: size.height,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.transparent,
+              border: Border.all(color: hintTextColor),
+            ),
+            child: Column(
+              children: [
+                Container(
+                  height: 140,
+                  decoration: const BoxDecoration(
+                      color: trendingHimcolor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

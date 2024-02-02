@@ -1,3 +1,4 @@
+import 'package:looks_beauty/Screens/catFilterSortScreen.dart';
 import 'package:looks_beauty/Screens/product_Screen.dart';
 import 'package:looks_beauty/Screens/tab_cat_shop.dart';
 import 'package:looks_beauty/components/priceCarousel.dart';
@@ -355,7 +356,7 @@ class _BodyCareProductCatState extends State<BodyCareProductCat> {
 
   openProductDetailScreen(context) {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const ProductDetailScreen()));
+        MaterialPageRoute(builder: (context) => const filterCatScreen()));
   }
 
   @override

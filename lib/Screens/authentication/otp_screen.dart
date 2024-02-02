@@ -2,8 +2,6 @@
 
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:looks_beauty/Screens/home_screen.dart';
 import 'package:looks_beauty/Screens/tabBar_Screen.dart';
@@ -11,6 +9,7 @@ import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
 import 'package:looks_beauty/routes/routes.dart';
 import 'package:pinput/pinput.dart';
+
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -51,46 +50,6 @@ class _OtpScreenState extends State<OtpScreen> {
   stopTimer() {
     if (countdownTimer.isActive) {
       countdownTimer.cancel();
-    }
-  }
-
-  void resendOtp() async {
-    try {
-      await FirebaseAuth.instance.verifyPhoneNumber(
-        // phoneNumber: phoneNumber,
-        verificationCompleted: (PhoneAuthCredential credential) {
-          Navigator.pushReplacementNamed(context, homeRoute);
-        },
-        verificationFailed: (FirebaseAuthException e) {
-          SnackBar snackBar = const SnackBar(
-              content: Text("Something went wrong, pleaes try again later"));
-          if (e.code == 'too-many-requests') {
-            snackBar = const SnackBar(
-              content: Text('Too Many Attempts'),
-            );
-          } else {
-            snackBar = const SnackBar(
-              content: Text('Something Went Wrong, Try Again later.'),
-            );
-          }
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        },
-        codeSent: (String verificationId, int? resendToken) {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => OtpScreen(
-          //       verificationId: verificationId,
-          //     ),
-          //   ),
-          // );
-        },
-        codeAutoRetrievalTimeout: (String verificationId) {},
-      );
-    } catch (e) {
-      SnackBar snackBar = const SnackBar(
-          content: Text("Something went wrong, pleaes try again later"));
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 
