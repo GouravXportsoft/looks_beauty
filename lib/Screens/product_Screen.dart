@@ -22,13 +22,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   final List catImageText = [mdText, mdHairText, mdRestorText, mdImg];
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       decoration: const BoxDecoration(color: safeareaColor),
       child: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            SliverAppBar(
+            const SliverAppBar(
               automaticallyImplyLeading: false,
               pinned: true, // Make the SearchComponent pinned at the top
               backgroundColor: safeareaColor,
@@ -36,6 +35,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               flexibleSpace: SearchComponent(
                 isBackEnabled: true,
               ),
+
+
+
+
+
+              
             ),
             SliverList(
               delegate: SliverChildListDelegate(
@@ -194,7 +199,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           padding:
                               EdgeInsets.only(left: 16, right: 16, top: 16),
                           child: Row(
-                            children: [
+                            children: [ 
                               Expanded(
                                 child: Text(
                                   "Material Feature",

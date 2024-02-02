@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:looks_beauty/components/appbarforMyAccScreen.dart';
-import 'package:looks_beauty/components/search_component.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 
 class myAccScreen extends StatefulWidget {

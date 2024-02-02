@@ -16,7 +16,7 @@ class _OrderDetailState extends State<OrderDetail> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          SliverAppBar(
+          const SliverAppBar(
             automaticallyImplyLeading: false,
             pinned: true,
             backgroundColor: safeareaColor,
@@ -28,29 +28,30 @@ class _OrderDetailState extends State<OrderDetail> {
             ),
           ),
           SliverToBoxAdapter(
+            
             child: Column(
               children: [
                 OrderIncart(),
-                Text("How’s your item?",
+                const Text("How’s your item?",
                     style: TextStyle(
                         color: bottomBarColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w600)),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: orderDetailsItem(context),
                 ),
-                Text(
+                const Text(
                   "Order info",
                   style: TextStyle(
                       color: bottomBarColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w600),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Padding(
@@ -68,8 +69,8 @@ class _OrderDetailState extends State<OrderDetail> {
 
 Widget OrderIncart() {
   return Container(
-    decoration: BoxDecoration(color: trendingHimcolor),
-    padding: EdgeInsets.all(16),
+    decoration: const BoxDecoration(color: trendingHimcolor),
+    padding: const EdgeInsets.all(16),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -77,9 +78,9 @@ Widget OrderIncart() {
           mdImg,
           scale: 3,
         ),
-        Expanded(
+        const Expanded(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.symmetric(horizontal: 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -101,11 +102,11 @@ Widget OrderIncart() {
           child: Container(
             height: 30,
             width: 100,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: baseColor,
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
-            child: Center(
+            child: const Center(
               child: Text(
                 "Buy it again",
                 style: TextStyle(color: Colors.white),

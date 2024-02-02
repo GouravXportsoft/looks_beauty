@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 const Color baseColor = Color(0xffFF4F63);
 const Color base2Color = Color(0xffFEE3E5);
+const Color base3Color = Color(0xffA8763F);
+
 const Color hintTextColor = Color(0xff8B8B8B);
 const Color whiteColor = Color.fromARGB(255, 255, 255, 255);
 const Color blackColor = Color.fromARGB(255, 0, 0, 0);

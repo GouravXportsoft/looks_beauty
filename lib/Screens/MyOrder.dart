@@ -22,15 +22,10 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-<<<<<<< HEAD
           const SliverAppBar(
-=======
-        const  SliverAppBar(
->>>>>>> ed26a4e (.)
             automaticallyImplyLeading: false,
             pinned: true,
             backgroundColor: safeareaColor,

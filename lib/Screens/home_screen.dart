@@ -1,6 +1,5 @@
 import 'package:looks_beauty/Screens/product_Screen.dart';
 import 'package:looks_beauty/Screens/tab_cat_shop.dart';
-import 'package:looks_beauty/components/carousel.dart';
 import 'package:looks_beauty/components/priceCarousel.dart';
 import 'package:looks_beauty/components/search_component.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
@@ -193,7 +192,6 @@ Widget trendingforHer(
 }
 
 Widget trendingforHim(context) {
-  Size size = MediaQuery.of(context).size;
   final List trendHimimage = [menImg, hairbeardImg, niveaImg, hritikImg];
   final List trenproductText = [
     buyOneGetText,
@@ -259,7 +257,6 @@ Widget trendingforHim(context) {
 }
 
 Widget BrandImage(context) {
-  Size size = MediaQuery.of(context).size;
   final List brandListImage = [
     pondsImg,
     kayImg,
@@ -328,17 +325,32 @@ class _BodyCareProductCatState extends State<BodyCareProductCat> {
   List CatImages = [faceImg, hairImg, LipImg, eyesImg, nailsImg, spaImg];
   List CatName = ["Face", "Hair", "Lip Care", "Eyes", "Nails", "Spa"];
   bool enable = true;
+  bool isDisposed = false; // Flag to track whether the widget is disposed
+
   void loadData() async {
-    await Future.delayed(const Duration(seconds: 5));
-    setState(() {
-      enable = false;
-    });
+    if (isDisposed)
+      return; // Check if the widget is disposed before updating state
+
+    await Future.delayed(const Duration(seconds: 3));
+
+    if (!isDisposed) {
+      // Check again before updating state
+      setState(() {
+        enable = false;
+      });
+    }
   }
 
   @override
   void initState() {
-    loadData();
     super.initState();
+    loadData();
+  }
+
+  @override
+  void dispose() {
+    isDisposed = true; // Set the flag to true before calling super.dispose()
+    super.dispose();
   }
 
   openProductDetailScreen(context) {

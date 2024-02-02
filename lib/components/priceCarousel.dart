@@ -18,25 +18,33 @@ class _PriceCaraouselState extends State<PriceCaraousel> {
   @override
   void initState() {
     super.initState();
+    startTimer();
+  }
+
+  void startTimer() {
     Timer.periodic(const Duration(seconds: 3), (Timer timer) {
-      if (_pageIndex < 3 - 1) {
-        setState(() {
-          _pageIndex = _pageIndex + 1;
-        });
-        pageController1.animateToPage(
-          _pageIndex,
-          duration: const Duration(milliseconds: 350),
-          curve: Curves.easeIn,
-        );
+      if (mounted) {
+        if (_pageIndex < 3 - 1) {
+          setState(() {
+            _pageIndex = _pageIndex + 1;
+          });
+          pageController1.animateToPage(
+            _pageIndex,
+            duration: const Duration(milliseconds: 350),
+            curve: Curves.easeIn,
+          );
+        } else {
+          setState(() {
+            _pageIndex = 0;
+          });
+          pageController1.animateToPage(
+            _pageIndex,
+            duration: const Duration(milliseconds: 350),
+            curve: Curves.easeIn,
+          );
+        }
       } else {
-        setState(() {
-          _pageIndex = 0;
-        });
-        pageController1.animateToPage(
-          _pageIndex,
-          duration: const Duration(milliseconds: 350),
-          curve: Curves.easeIn,
-        );
+        timer.cancel(); // Cancel the timer if the widget is disposed
       }
     });
   }
@@ -116,6 +124,5 @@ class _PriceCaraouselState extends State<PriceCaraousel> {
         )
       ]),
     );
-    ;
   }
 }
