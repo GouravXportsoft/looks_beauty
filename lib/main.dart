@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:looks_beauty/Screens/authentication/login.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
+import 'package:looks_beauty/provider/homeprovider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => HomeProvider(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

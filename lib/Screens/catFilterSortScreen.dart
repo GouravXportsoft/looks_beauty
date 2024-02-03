@@ -5,6 +5,8 @@ import 'package:looks_beauty/components/search_component.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
 import 'package:looks_beauty/constants/string_constant.dart';
+import 'package:looks_beauty/provider/homeprovider.dart';
+import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class filterCatScreen extends StatefulWidget {
@@ -26,10 +28,16 @@ class _filterCatScreenState extends State<filterCatScreen> {
       bannerImage
     ];
 
-    return Container(
-      decoration: const BoxDecoration(color: safeareaColor),
-      child: Scaffold(
-        body: Stack(
+    List SortbyList = [
+      "Discount",
+      "Price - Low to High",
+      "Price - High to Low",
+      "Top Rated",
+      "New arrivals"
+    ];
+    return Scaffold(
+      body: Consumer<HomeProvider>(builder: (_, homeProvider, child) {
+        return Stack(
           children: [
             CustomScrollView(
               slivers: [
@@ -103,12 +111,53 @@ class _filterCatScreenState extends State<filterCatScreen> {
                         context: context,
                         builder: (BuildContext context) {
                           // Your bottom sheet content goes here
-                          return Container(
-                            height: 200,
-                            child: const Center(
-                              child: Text("Bottom Sheet Content"),
-                            ),
-                          );
+                          return SizedBox(
+                              height: size.height / 2.5,
+                              child: Column(
+                                children: [
+                                  const Padding(
+                                    padding: EdgeInsets.all(14.0),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "Sort By",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListView.builder(
+                                        scrollDirection: Axis.vertical,
+                                        itemCount: SortbyList.length,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          return Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 12,
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(SortbyList[index]),
+                                                Checkbox(
+                                                    activeColor: baseColor,
+                                                    value: homeProvider.agree,
+                                                    onChanged: (value) {
+                                                      homeProvider.isagree();
+                                                      print(value);
+                                                    })
+                                              ],
+                                            ),
+                                          );
+                                        }),
+                                  )
+                                ],
+                              ));
                         },
                       );
                     },
@@ -137,7 +186,7 @@ class _filterCatScreenState extends State<filterCatScreen> {
                           builder: (BuildContext context) {
                             // Your bottom sheet content goes here
                             return Container(
-                              height: 200,
+                              height: size.height,
                               child: const Center(
                                 child: Text("Bottom Sheet Content"),
                               ),
@@ -159,20 +208,22 @@ class _filterCatScreenState extends State<filterCatScreen> {
               ],
             )
           ],
-        ),
-      ),
+        );
+      }),
     );
   }
 
   Widget CatGrid(context) {
     Size size = MediaQuery.of(context).size;
+    final List CatImages = [mdImg, mdImg, mdImg, mdImg];
+    final List CatImageText = [mdText, mdHairText, mdRestorText, mdImg];
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 00),
       child: GridView.builder(
         padding: const EdgeInsets.all(8),
         physics: const BouncingScrollPhysics(),
-        itemCount: 6,
+        itemCount: 4,
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           mainAxisExtent: size.height * .35,
@@ -191,15 +242,76 @@ class _filterCatScreenState extends State<filterCatScreen> {
               border: Border.all(color: hintTextColor),
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  height: 140,
-                  decoration: const BoxDecoration(
-                      color: trendingHimcolor,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
+                Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: tabCatBackcolor,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              CatImages[indx],
+                              height: 150,
+                            ),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(Icons.shopping_cart),
+                                Icon(
+                                  Icons.favorite,
+                                  color: Colors.pink,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+                Text(
+                  CatImageText[indx],
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 17),
+                ),
+                const Text(
+                  bestsellerText,
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 25,
+                        width: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.green),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: const Center(
+                            child: Text(
+                          "Rs. 449",
+                          style: TextStyle(color: Colors.green),
+                        )),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 5),
+                        child: Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                          size: 19,
+                        ),
+                      ),
+                      const Text('4.8')
+                    ],
+                  ),
+                )
               ],
             ),
           );
@@ -210,6 +322,8 @@ class _filterCatScreenState extends State<filterCatScreen> {
 
   Widget Cat_Grid(context) {
     Size size = MediaQuery.of(context).size;
+    final List CatImages = [mdImg, mdImg, mdImg, mdImg];
+    final List CatImageText = [mdText, mdHairText, mdRestorText, mdImg];
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 50),
@@ -235,15 +349,76 @@ class _filterCatScreenState extends State<filterCatScreen> {
               border: Border.all(color: hintTextColor),
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  height: 140,
-                  decoration: const BoxDecoration(
-                      color: trendingHimcolor,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
+                Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: tabCatBackcolor,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              CatImages[indx],
+                              height: 150,
+                            ),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(Icons.shopping_cart),
+                                Icon(
+                                  Icons.favorite,
+                                  color: Colors.pink,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+                Text(
+                  CatImageText[indx],
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 17),
+                ),
+                const Text(
+                  bestsellerText,
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 25,
+                        width: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.green),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: const Center(
+                            child: Text(
+                          "Rs. 449",
+                          style: TextStyle(color: Colors.green),
+                        )),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 5),
+                        child: Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                          size: 19,
+                        ),
+                      ),
+                      const Text('4.8')
+                    ],
+                  ),
+                )
               ],
             ),
           );
