@@ -111,51 +111,54 @@ class _filterCatScreenState extends State<filterCatScreen> {
                         context: context,
                         builder: (BuildContext context) {
                           // Your bottom sheet content goes here
-                          return SizedBox(
-                              height: size.height / 2.5,
-                              child: Column(
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.all(14.0),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Sort By",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ],
+                          return Consumer<HomeProvider>(
+                              builder: (_, provider, __) {
+                            return SizedBox(
+                                height: size.height / 2.5,
+                                child: Column(
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.all(14.0),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "Sort By",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  Expanded(
-                                      child: ListView(
-                                    children: sortList.map((e) {
-                                      return Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 12,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(e),
-                                            Checkbox(
-                                              activeColor: Colors
-                                                  .blue, // Replace with your desired color
-                                              value: homeProvider.sortList
-                                                  .contains(e),
-                                              onChanged: (value) => {
-                                                homeProvider.addToList(e),
-                                              },
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    }).toList(),
-                                  ))
-                                ],
-                              ));
+                                    Expanded(
+                                        child: ListView(
+                                      children: sortList.map((e) {
+                                        return Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 12,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(e),
+                                              Checkbox(
+                                                activeColor:
+                                                    baseColor, // Replace with your desired color
+                                                value: provider.sortList
+                                                    .contains(e),
+                                                onChanged: (value) => {
+                                                  provider.addToList(e),
+                                                },
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      }).toList(),
+                                    ))
+                                  ],
+                                ));
+                          });
                         },
                       );
                     },
