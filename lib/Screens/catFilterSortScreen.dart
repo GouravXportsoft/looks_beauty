@@ -137,21 +137,32 @@ class _filterCatScreenState extends State<filterCatScreen> {
                                           padding: const EdgeInsets.symmetric(
                                             horizontal: 12,
                                           ),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(e),
-                                              Checkbox(
-                                                activeColor:
-                                                    baseColor, // Replace with your desired color
-                                                value: provider.sortList
-                                                    .contains(e),
-                                                onChanged: (value) => {
-                                                  provider.addToList(e),
-                                                },
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              // Toggle the checkbox state when the row is tapped
+                                              provider.addToList(e);
+                                            },
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: Colors.transparent),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(e),
+                                                  Checkbox(
+                                                    activeColor:
+                                                        baseColor, // Replace with your desired color
+                                                    value: provider.sortList
+                                                        .contains(e),
+                                                    onChanged: (value) => {
+                                                      provider.addToList(e),
+                                                    },
+                                                  ),
+                                                ],
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         );
                                       }).toList(),
@@ -187,7 +198,8 @@ class _filterCatScreenState extends State<filterCatScreen> {
                           builder: (BuildContext context) {
                             // Your bottom sheet content goes here
                             return Container(
-                              height: size.height,
+                              // Set the desired height for the bottom sheet content
+                              // Adjust this value according to your needs
                               child: const Center(
                                 child: Text("Bottom Sheet Content"),
                               ),
@@ -236,7 +248,7 @@ class _filterCatScreenState extends State<filterCatScreen> {
           return Container(
             // width: double.infinity,
             clipBehavior: Clip.antiAlias,
-            height: size.height,
+
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.transparent,
