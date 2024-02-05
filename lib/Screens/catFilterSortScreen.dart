@@ -28,7 +28,7 @@ class _filterCatScreenState extends State<filterCatScreen> {
       bannerImage
     ];
 
-    List SortbyList = [
+    List sortList = [
       "Discount",
       "Price - Low to High",
       "Price - High to Low",
@@ -36,7 +36,7 @@ class _filterCatScreenState extends State<filterCatScreen> {
       "New arrivals"
     ];
     return Scaffold(
-      body: Consumer<HomeProvider>(builder: (_, homeProvider, child) {
+      body: Consumer<HomeProvider>(builder: (_, homeProvider, __) {
         return Stack(
           children: [
             CustomScrollView(
@@ -129,33 +129,31 @@ class _filterCatScreenState extends State<filterCatScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                    child: ListView.builder(
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: SortbyList.length,
-                                        itemBuilder:
-                                            (BuildContext context, int index) {
-                                          return Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 12,
+                                      child: ListView(
+                                    children: sortList.map((e) {
+                                      return Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 12,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(e),
+                                            Checkbox(
+                                              activeColor: Colors
+                                                  .blue, // Replace with your desired color
+                                              value: homeProvider.sortList
+                                                  .contains(e),
+                                              onChanged: (value) => {
+                                                homeProvider.addToList(e),
+                                              },
                                             ),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(SortbyList[index]),
-                                                Checkbox(
-                                                    activeColor: baseColor,
-                                                    value: homeProvider.agree,
-                                                    onChanged: (value) {
-                                                      homeProvider.isagree();
-                                                      print(value);
-                                                    })
-                                              ],
-                                            ),
-                                          );
-                                        }),
-                                  )
+                                          ],
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ))
                                 ],
                               ));
                         },
