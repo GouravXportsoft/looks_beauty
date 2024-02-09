@@ -143,7 +143,7 @@ class _filterCatScreenState extends State<filterCatScreen> {
                                               provider.addToList(e);
                                             },
                                             child: Container(
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                   color: Colors.transparent),
                                               child: Row(
                                                 mainAxisAlignment:
