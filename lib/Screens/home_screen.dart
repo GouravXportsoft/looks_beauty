@@ -148,12 +148,12 @@ Widget trendingforHer(
           ),
         ),
         GridView.builder(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(10),
             physics: const BouncingScrollPhysics(),
             itemCount: trendHerimage.length,
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 16),
+                crossAxisCount: 2, mainAxisSpacing: 16, crossAxisSpacing: 16),
             itemBuilder: (BuildContext context, indx) {
               return Column(
                 children: [
@@ -165,9 +165,11 @@ Widget trendingforHer(
                     trenproductText[indx],
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                    trenproductTitleText[indx],
-                    style: const TextStyle(fontWeight: FontWeight.w400),
+                  Expanded(
+                    child: Text(
+                      trenproductTitleText[indx],
+                      style: const TextStyle(fontWeight: FontWeight.w400),
+                    ),
                   ),
                 ],
               );
@@ -208,7 +210,7 @@ Widget trendingforHim(context) {
   ];
 
   return Padding(
-    padding: const EdgeInsets.only(top: 25, bottom: 80),
+    padding: const EdgeInsets.only(top: 25, bottom: 100),
     child: Container(
       // height: size.height * .56,
       color: trendingHimcolor,
@@ -232,20 +234,20 @@ Widget trendingforHim(context) {
               itemCount: trendHimimage.length,
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, mainAxisSpacing: 8, crossAxisSpacing: 20),
+                  crossAxisCount: 2, mainAxisSpacing: 16, crossAxisSpacing: 24),
               itemBuilder: (BuildContext context, indx) {
                 return Column(
                   children: [
                     Image.asset(trendHimimage[indx]),
+                    Text(
+                      trenproductText[indx],
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     Expanded(
                       child: Text(
-                        trenproductText[indx],
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        trenproductTitleText[indx],
+                        style: const TextStyle(fontWeight: FontWeight.w400),
                       ),
-                    ),
-                    Text(
-                      trenproductTitleText[indx],
-                      style: const TextStyle(fontWeight: FontWeight.w400),
                     ),
                   ],
                 );

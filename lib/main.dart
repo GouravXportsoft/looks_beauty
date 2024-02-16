@@ -31,8 +31,6 @@ class MyApp extends StatelessWidget {
               applogoImage,
             ),
           ),
-
-          
           nextScreen: const LoginPage()),
     );
   }

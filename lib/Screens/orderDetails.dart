@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:looks_beauty/components/appbarforMyAccScreen.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
@@ -28,7 +29,6 @@ class _OrderDetailState extends State<OrderDetail> {
             ),
           ),
           SliverToBoxAdapter(
-            
             child: Column(
               children: [
                 OrderIncart(),
@@ -67,6 +67,7 @@ class _OrderDetailState extends State<OrderDetail> {
   }
 }
 
+// ignore: non_constant_identifier_names
 Widget OrderIncart() {
   return Container(
     decoration: const BoxDecoration(color: trendingHimcolor),
