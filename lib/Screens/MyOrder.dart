@@ -14,7 +14,6 @@ String selectedOption = 'Option 1';
 
 class _MyOrderScreenState extends State<MyOrderScreen> {
   String searchText = 'Search Your Order';
-
   @override
   void initState() {
     super.initState();
@@ -33,7 +32,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
             flexibleSpace: appbarMyAcc(
               showCartIcon: true,
               onTextChange: 'Your Order',
-              title: '', // Add a title if needed
+              title: '', // Add a title if neededj
             ),
           ),
           SliverToBoxAdapter(
@@ -86,7 +85,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
           Positioned(
             top: 100,
             child: AlertDialog(
-              content: Container(
+              content: SizedBox(
                 width: 200.0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -130,7 +129,7 @@ Widget Orderss(BuildContext context) {
   ];
 
   return ListView.builder(
-    physics: NeverScrollableScrollPhysics(),
+    physics: const NeverScrollableScrollPhysics(),
     padding: EdgeInsets.zero,
     shrinkWrap: true,
     itemCount: ImageListorder.length, // Specify the itemCount

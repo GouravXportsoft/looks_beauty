@@ -208,7 +208,7 @@ Widget trendingforHim(context) {
   ];
 
   return Padding(
-    padding: const EdgeInsets.only(top: 25, bottom: 100),
+    padding: const EdgeInsets.only(top: 25, bottom: 80),
     child: Container(
       // height: size.height * .56,
       color: trendingHimcolor,
@@ -221,7 +221,7 @@ Widget trendingforHim(context) {
             child: Text(
               trendingHimText,
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -232,17 +232,16 @@ Widget trendingforHim(context) {
               itemCount: trendHimimage.length,
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 16),
+                  crossAxisCount: 2, mainAxisSpacing: 8, crossAxisSpacing: 20),
               itemBuilder: (BuildContext context, indx) {
                 return Column(
                   children: [
                     Image.asset(trendHimimage[indx]),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      trenproductText[indx],
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    Expanded(
+                      child: Text(
+                        trenproductText[indx],
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
                     Text(
                       trenproductTitleText[indx],

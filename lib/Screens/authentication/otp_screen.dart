@@ -3,11 +3,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:looks_beauty/Screens/home_screen.dart';
 import 'package:looks_beauty/Screens/tabBar_Screen.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
-import 'package:looks_beauty/routes/routes.dart';
 import 'package:pinput/pinput.dart';
 
 import 'package:swipeable_button_view/swipeable_button_view.dart';
@@ -28,7 +26,6 @@ class _OtpScreenState extends State<OtpScreen> {
   final otpController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  bool _isValid = false;
   var code = '';
   bool isFinished = false;
   bool loading = false;
@@ -146,7 +143,7 @@ class _OtpScreenState extends State<OtpScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           // GestureDetector(
@@ -240,11 +237,9 @@ class _OtpScreenState extends State<OtpScreen> {
                                 });
                               },
                               activeColor: baseColor,
-                              buttonWidget: Container(
-                                child: const Icon(
-                                  Icons.arrow_forward_ios_rounded,
-                                  color: Color(0xffA8763F),
-                                ),
+                              buttonWidget: const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                color: Color(0xffA8763F),
                               ),
                               buttonText: 'Slide to Verify OTP'),
                         ],

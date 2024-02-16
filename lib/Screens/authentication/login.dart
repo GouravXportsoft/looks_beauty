@@ -1,9 +1,6 @@
-// ignore_for_file: use_build_context_synchronously, avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:looks_beauty/Screens/authentication/signUp.dart';
-import 'package:looks_beauty/Screens/home_screen.dart';
 import 'package:looks_beauty/Screens/tabBar_Screen.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
@@ -520,7 +517,7 @@ class _LoginPageState extends State<LoginPage>
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => TabBarScreen()));
+                              builder: (context) => const TabBarScreen()));
                       setState(() {
                         isFinished = false;
                       });
