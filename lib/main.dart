@@ -15,10 +15,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;                                                                                                                                                                                                                     
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
           splash: const Image(
             image: AssetImage(
               applogoImage,
-            ),
+            ), 
           ),
           nextScreen: const LoginPage()),
     );
