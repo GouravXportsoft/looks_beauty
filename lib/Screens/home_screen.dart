@@ -269,13 +269,16 @@ Widget BrandImage(context) {
     kayImg,
     bathbodyImg,
   ];
+
+  final List firstRowImages = brandListImage.take(5).toList();
+  final List secondRowImages = brandListImage.take(4).toList();
   openProductDetailScreen(context) {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => const ProductDetailScreen()));
   }
 
   return Container(
-    height: 120,
+    // height: 120,
     color: brandBackColor,
     child: Column(
       children: [
@@ -291,26 +294,54 @@ Widget BrandImage(context) {
             ),
           ),
         ),
-        Expanded(
-          child: ListView.builder(
-              semanticChildCount: 5,
-              shrinkWrap: true,
-
-              // physics: NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: brandListImage.length,
-              itemBuilder: (BuildContext cntx, indx) {
+        Column(children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: firstRowImages.map((image) {
+              return GestureDetector(
+                onTap: () {},
+                child: Image.asset(image, scale: 4),
+              );
+            }).toList(),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: secondRowImages.map((image) {
                 return GestureDetector(
                   onTap: () {
                     openProductDetailScreen(context);
                   },
                   child: Image.asset(
-                    brandListImage[indx],
+                    image,
                     scale: 4,
                   ),
                 );
-              }),
-        ),
+              }).toList(),
+            ),
+          )
+        ])
+        // Expanded(
+        //   child: ListView.builder(
+        //       semanticChildCount: 5,
+        //       shrinkWrap: true,
+
+        //       // physics: NeverScrollableScrollPhysics(),
+        //       scrollDirection: Axis.horizontal,
+        //       itemCount: brandListImage.length,
+        //       itemBuilder: (BuildContext cntx, indx) {
+        //         return GestureDetector(
+        //           onTap: () {
+        //             openProductDetailScreen(context);
+        //           },
+        //           child: Image.asset(
+        //             brandListImage[indx],
+        //             scale: 4,
+        //           ),
+        //         );
+        //       }),
+        // ),
       ],
     ),
   );

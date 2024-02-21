@@ -5,7 +5,6 @@ import 'package:looks_beauty/Screens/tabBar_Screen.dart';
 import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
 import 'package:looks_beauty/constants/string_constant.dart';
-import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 
 class LoginPage extends StatefulWidget {
@@ -29,8 +28,8 @@ class _LoginPageState extends State<LoginPage>
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
-  final RoundedLoadingButtonController roundedController =
-      RoundedLoadingButtonController();
+  // final RoundedLoadingButtonController roundedController =
+  //     RoundedLoadingButtonController();
   late AnimationController _controller;
   late Animation<double> _animation;
 

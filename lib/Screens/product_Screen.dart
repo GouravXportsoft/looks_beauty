@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_paypal_easy_checkout/flutter_paypal_checkout.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:looks_beauty/components/product_detail_carousel.dart';
 import 'package:looks_beauty/components/search_component.dart';
@@ -35,12 +36,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               flexibleSpace: SearchComponent(
                 isBackEnabled: true,
               ),
-
-
-
-
-
-              
             ),
             SliverList(
               delegate: SliverChildListDelegate(
@@ -199,7 +194,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           padding:
                               EdgeInsets.only(left: 16, right: 16, top: 16),
                           child: Row(
-                            children: [ 
+                            children: [
                               Expanded(
                                 child: Text(
                                   "Material Feature",
@@ -800,7 +795,20 @@ class _SelctedSizeState extends State<SelctedSize> {
               ),
             ),
             GestureDetector(
-              onTap: () async {},
+              onTap: () async {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => PaypalEasyCheckout(
+                            onSuccess: () {},
+                            onError: () {},
+                            onCancel: () {},
+                            returnURL: '',
+                            cancelURL: '',
+                            transactions: [],
+                            clientId: '',
+                            secretKey: ''))));
+              },
               child: Container(
                 height: 50, width: size.width / 2.2,
                 // margin: const EdgeInsets.only(top: 8, right: 16, left: 16),

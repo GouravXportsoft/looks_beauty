@@ -239,7 +239,7 @@ class _filterCatScreenState extends State<filterCatScreen> {
         itemCount: 4,
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisExtent: size.height * .35,
+          mainAxisExtent: size.height * .4,
           crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 15,
@@ -252,7 +252,7 @@ class _filterCatScreenState extends State<filterCatScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.transparent,
-              border: Border.all(color: hintTextColor),
+              // border: Border.all(color: hintTextColor),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -346,7 +346,7 @@ class _filterCatScreenState extends State<filterCatScreen> {
         itemCount: 2,
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisExtent: size.height * .35,
+          mainAxisExtent: size.height * .4,
           crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 15,
@@ -359,7 +359,7 @@ class _filterCatScreenState extends State<filterCatScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.transparent,
-              border: Border.all(color: hintTextColor),
+              // border: Border.all(color: hintTextColor),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

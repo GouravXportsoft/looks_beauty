@@ -4,7 +4,7 @@ import 'package:looks_beauty/constants/color_constant.dart';
 import 'package:looks_beauty/constants/image_constant.dart';
 import 'package:looks_beauty/constants/string_constant.dart';
 import 'package:looks_beauty/routes/routes.dart';
-import 'package:rounded_loading_button/rounded_loading_button.dart';
+// import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({super.key});
@@ -23,8 +23,8 @@ class _SingUpScreenState extends State<SingUpScreen>
   final TextEditingController nameController = TextEditingController();
   late AnimationController _controller;
   bool changebutton = false;
-  final RoundedLoadingButtonController roundedController =
-      RoundedLoadingButtonController();
+  // final RoundedLoadingButtonController roundedController =
+  //     RoundedLoadingButtonController();
   late Animation<double> _animation;
   bool _isGmail(String email) {
     return email.endsWith('@gmail.com');
@@ -356,22 +356,23 @@ class _SingUpScreenState extends State<SingUpScreen>
                 Padding(
                   padding: const EdgeInsets.only(top: 15),
                   child: ScaleTransition(
-                      scale: _animation,
-                      child: RoundedLoadingButton(
-                        color: baseColor,
-                        onPressed: () => moveToNextScreen(context),
-                        controller: roundedController,
-                        successColor: baseColor,
-                        child: const Center(
-                          child: Text(singupText,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                // fontFamily: GoogleFonts.roboto().fontFamily),
-                              )),
-                        ),
-                      )),
+                    scale: _animation,
+                    // child: RoundedLoadingButton(
+                    //   color: baseColor,
+                    //   onPressed: () => moveToNextScreen(context),
+                    //   controller: roundedController,
+                    //   successColor: baseColor,
+                    //   child: const Center(
+                    //     child: Text(singupText,
+                    //         style: TextStyle(
+                    //           color: Colors.white,
+                    //           fontSize: 16,
+                    //           fontWeight: FontWeight.bold,
+                    //           // fontFamily: GoogleFonts.roboto().fontFamily),
+                    //         )),
+                    //   ),
+                    // )
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
